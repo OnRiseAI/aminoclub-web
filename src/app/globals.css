@@ -19,12 +19,14 @@
   --color-cta-DEFAULT: #0a1424;
   --color-cta-hover: #1e293b;
 
-  /* Pastel surface accents — peach top stripe + lavender/pink hero gradient */
+  /* Pastel surface accents — match live site section backgrounds */
   --color-surface-peach: #fde6d3;
   --color-surface-cream: #fff7ee;
   --color-surface-lavender: #ece9ff;
   --color-surface-pink: #fce4f0;
-  --color-surface-mint: #dff5e6;
+  --color-surface-mint: #e3f3dc;        /* pale green for "Everything you need to succeed" */
+  --color-surface-yellow: #fdf3c4;      /* cream/yellow for "All the research peptides" CTA */
+  --color-surface-haze: #eef2f6;        /* light grey-blue for "Why choose Amino Club" */
 
   /* Green for trust badges + announcement bar */
   --color-success-500: #16a34a;
@@ -62,6 +64,46 @@ h4 {
   margin-inline: auto;
   max-width: 1280px;
   padding-inline: 1.5rem;
+}
+
+/* Faint dotted grid pattern for premium section backgrounds */
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Sweeping shimmer line — used over product hero for "scan" effect */
+@keyframes shimmer-sweep {
+  0% { transform: translateY(-110%); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(110%); opacity: 0; }
+}
+.animate-shimmer-sweep {
+  animation: shimmer-sweep 4.5s ease-in-out infinite;
+}
+
+/* Slow radial pulse behind product hero */
+@keyframes radial-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50% { transform: scale(1.06); opacity: 0.75; }
+}
+.animate-radial-pulse {
+  animation: radial-pulse 4s ease-in-out infinite;
+}
+
+/* Animated dot for "live" indicator */
+@keyframes live-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.animate-live-dot {
+  animation: live-dot 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shimmer-sweep,
+  .animate-radial-pulse,
+  .animate-live-dot { animation: none; }
 }
 
 /* Soft pastel gradient backdrop for hero — approximates live site's lavender/pink wash */

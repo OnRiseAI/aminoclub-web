@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BadgeCheck, Truck, TestTube, HelpCircle } from "lucide-react";
 
 const rows = [
@@ -5,8 +6,8 @@ const rows = [
     icon: BadgeCheck,
     title: "99% Purity Guaranteed",
     body: "Every batch verified",
-    tint: "bg-success-500/10 text-success-600",
-    rowBg: "bg-success-500/5",
+    tint: "bg-success-500/15 text-success-600",
+    rowBg: "bg-success-500/8",
     border: "border-l-success-500",
     tooltip: false,
   },
@@ -14,8 +15,8 @@ const rows = [
     icon: Truck,
     title: "Shipment Protection",
     body: "Every order fully covered",
-    tint: "bg-sky-500/10 text-sky-600",
-    rowBg: "bg-sky-500/5",
+    tint: "bg-sky-500/15 text-sky-600",
+    rowBg: "bg-sky-500/8",
     border: "border-l-sky-500",
     tooltip: true,
   },
@@ -23,8 +24,8 @@ const rows = [
     icon: TestTube,
     title: "CoA with Every Batch",
     body: "Third Party tested in America",
-    tint: "bg-yellow-400/15 text-yellow-700",
-    rowBg: "bg-yellow-400/5",
+    tint: "bg-yellow-400/20 text-yellow-700",
+    rowBg: "bg-yellow-400/8",
     border: "border-l-yellow-500",
     tooltip: true,
   },
@@ -32,16 +33,16 @@ const rows = [
 
 export function Guarantee() {
   return (
-    <section className="bg-gradient-to-b from-surface-lavender/40 via-white to-surface-pink/30">
-      <div className="container-page grid grid-cols-1 items-center gap-12 py-20 md:grid-cols-2 md:py-24">
-        <div className="relative aspect-square w-full max-w-[520px]">
-          {/* Placeholder for product photography (pink amino-branded vial like live site) */}
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-surface-pink via-surface-lavender to-surface-cream" />
-          <div className="relative flex h-full items-center justify-center">
-            <span className="text-[12px] uppercase tracking-[0.18em] text-ink-500">
-              product photography placeholder
-            </span>
-          </div>
+    <section className="bg-white">
+      <div className="container-page grid grid-cols-1 items-center gap-10 py-20 md:grid-cols-2 md:py-24">
+        <div className="relative aspect-[3/4] w-full max-w-[480px] overflow-hidden rounded-3xl bg-gradient-to-br from-surface-pink/50 via-surface-lavender/40 to-surface-cream">
+          <Image
+            src="/vial-glp3.png"
+            alt="GLP-3 research peptide pen"
+            fill
+            sizes="(max-width: 768px) 100vw, 480px"
+            className="object-contain p-6"
+          />
         </div>
 
         <div>
@@ -52,11 +53,11 @@ export function Guarantee() {
             Documented quality for research and laboratory use. Every batch meets our internal purity standards.
           </p>
 
-          <div className="mt-8 flex flex-col gap-4">
+          <div className="mt-8 flex flex-col gap-3">
             {rows.map(({ icon: Icon, title, body, tint, rowBg, border, tooltip }) => (
               <div
                 key={title}
-                className={`flex items-center gap-4 rounded-r-2xl border-l-4 ${border} ${rowBg} px-5 py-4`}
+                className={`flex items-center gap-4 rounded-2xl border-l-4 ${border} ${rowBg} px-5 py-4`}
               >
                 <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${tint}`}>
                   <Icon className="h-5 w-5" strokeWidth={2} />

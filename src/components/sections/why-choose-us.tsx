@@ -9,7 +9,7 @@ const cards = [
   {
     icon: Percent,
     title: "Volume Pricing",
-    body: "Bulk pricing available for larger research orders. Lower per-vial cost at higher volumes.",
+    body: "Bulk pricing available for larger research orders. Lower per-pen cost at higher volumes.",
   },
   {
     icon: PackageCheck,
@@ -35,8 +35,18 @@ const cards = [
 
 export function WhyChooseUs() {
   return (
-    <section className="bg-surface-cream/40">
-      <div className="container-page py-20 md:py-24">
+    <section className="relative overflow-hidden bg-surface-haze">
+      {/* Subtle bubble texture */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-50"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 20% 25%, rgba(255,255,255,0.7) 0, transparent 18%), radial-gradient(circle at 85% 60%, rgba(255,255,255,0.6) 0, transparent 14%), radial-gradient(circle at 50% 90%, rgba(255,255,255,0.65) 0, transparent 16%), radial-gradient(circle at 10% 75%, rgba(255,255,255,0.55) 0, transparent 12%)",
+        }}
+      />
+
+      <div className="container-page relative py-20 md:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-[32px] md:text-[44px] font-bold leading-tight text-ink-900">
             Why choose Amino Club?
@@ -45,14 +55,11 @@ export function WhyChooseUs() {
 
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {cards.map(({ icon: Icon, title, body }) => (
-            <div
-              key={title}
-              className="rounded-2xl border border-ink-100 bg-white p-6"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-surface-lavender text-ink-900">
-                <Icon className="h-5 w-5" strokeWidth={1.8} />
+            <div key={title} className="rounded-2xl bg-white/80 p-6 backdrop-blur-sm">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-lavender text-ink-900">
+                <Icon className="h-5 w-5" strokeWidth={1.7} />
               </div>
-              <h3 className="mt-5 text-[17px] font-semibold text-ink-900">{title}</h3>
+              <h3 className="mt-4 text-[16px] font-semibold text-ink-900">{title}</h3>
               <p className="mt-2 text-[13.5px] leading-relaxed text-ink-600">{body}</p>
             </div>
           ))}

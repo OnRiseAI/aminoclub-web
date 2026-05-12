@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Guarantee } from "@/components/sections/guarantee";
-import { ProductShowcase } from "@/components/sections/product-showcase";
 import { Benefits } from "@/components/sections/benefits";
 import { QualityVerification } from "@/components/sections/quality-verification";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { FAQ } from "@/components/sections/faq";
+import { CtaBanner } from "@/components/sections/cta-banner";
 import { Newsletter } from "@/components/sections/newsletter";
 
 export default function HomePage() {
@@ -40,7 +40,7 @@ export default function HomePage() {
           <div className="relative aspect-square w-full max-w-[560px] justify-self-end">
             <Image
               src="/hero-pens.png"
-              alt="Research-grade peptide vials"
+              alt="Research-grade peptide pens"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 560px"
@@ -51,11 +51,11 @@ export default function HomePage() {
       </section>
 
       <Guarantee />
-      <ProductShowcase />
       <Benefits />
       <QualityVerification />
       <WhyChooseUs />
       <FAQ />
+      <CtaBanner />
       <Newsletter />
     </>
   );
